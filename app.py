@@ -21,11 +21,9 @@ st.set_page_config(
 # ─── SUPABASE ─────────────────────────────────────────────
 @st.cache_resource
 def get_supabase() -> Client:
-    #url = os.getenv("SUPABASE_URL", st.secrets.get("SUPABASE_URL", ""))
-    #key = os.getenv("SUPABASE_KEY", st.secrets.get("SUPABASE_KEY", ""))
+    url = os.getenv("SUPABASE_URL", st.secrets.get("SUPABASE_URL", ""))
+    key = os.getenv("SUPABASE_KEY", st.secrets.get("SUPABASE_KEY", ""))
     
-    url = os.getenv("SUPABASE_URL","https://ozzwkprnihtvuqkmpgsl.supabase.co")
-    key = os.getenv("SUPABASE_KEY", "sb_publishable_ekfhoJ6q5QGsCzH70qOQHg_o395nKH5")
     
     
     return create_client(url, key)
