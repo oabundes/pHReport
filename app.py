@@ -21,11 +21,10 @@ st.set_page_config(
 # ─── SUPABASE ─────────────────────────────────────────────
 @st.cache_resource
 def get_supabase() -> Client:
-    url = os.getenv("SUPABASE_URL", st.secrets.get("SUPABASE_URL", ""))
-    key = os.getenv("SUPABASE_KEY", st.secrets.get("SUPABASE_KEY", ""))
-    
-    
-    
+    url = st.secrets["SUPABASE_URL"]
+    key = st.secrets["SUPABASE_KEY"]
+    print("url",url)  
+    print("key",key) 
     return create_client(url, key)
 
 supabase = get_supabase()
